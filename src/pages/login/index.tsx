@@ -1,36 +1,45 @@
 // components/LoginForm.js
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { Button } from "~/components/ui/button";
+import { Label } from "~/components/ui/label";
+import { useToast } from "~/components/ui/use-toast";
 
 const LoginForm = () => {
   const router = useRouter();
+  const { toast } = useToast();
 
   const initialValues = {
-    username: "dummyuser",
-    password: "password",
+    username: "john_doe2",
+    password: "Abc132#",
   };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required("Required"),
+    username: Yup.string().required("Required").min(5).max(20),
     password: Yup.string().required("Required"),
   });
 
   const onSubmit = async (values: any, { resetForm }: any) => {
     try {
       const response = await axios.post("/api/login", values);
-      console.log({ response });
       if (response.status === 200) {
+        localStorage.setItem("name", response?.data?.user?.name);
         Cookies.set("authToken", response?.data?.token, { expires: 7 });
         resetForm();
         router.push("/");
       }
-    } catch (error) {
-      console.error("Login failed", error);
+    } catch (error: any) {
+      console.log({ error });
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: error.response.data.error,
+      });
     }
   };
 
@@ -41,11 +50,14 @@ const LoginForm = () => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        <Form>
-          <div className="mb-4">
-            <label htmlFor="username" className="block text-gray-700 font-bold">
+        <Form className="flex flex-col w-[90%] max-w-[400px]">
+          <div className="mb-4 w-full">
+            <Label
+              htmlFor="username"
+              className="block text-gray-700 font-bold mb-3"
+            >
               User name
-            </label>
+            </Label>
             <Field
               type="username"
               id="username"
@@ -59,10 +71,13 @@ const LoginForm = () => {
             />
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="password" className="block text-gray-700 font-bold">
+          <div className="mb-4 w-full">
+            <Label
+              htmlFor="password"
+              className="block text-gray-700 font-bold  mb-3"
+            >
               Password:
-            </label>
+            </Label>
             <Field
               type="password"
               id="password"
@@ -76,13 +91,13 @@ const LoginForm = () => {
             />
           </div>
 
-          <div>
-            <button
+          <div className="w-full">
+            <Button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-slate-800 text-white px-4 py-2 rounded hover:bg-slate-600 w-full"
             >
               Log In
-            </button>
+            </Button>
           </div>
         </Form>
       </Formik>

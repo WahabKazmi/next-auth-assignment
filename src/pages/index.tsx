@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { Button } from "~/components/ui/button";
 
 export default function Home() {
   const router = useRouter();
@@ -18,17 +19,25 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        <button className="" onClick={logout}>
-          logout
-        </button>
+        <div className="container">
+          <div className="bg-slate-500 p-4 rounded-xl mt-5 flex justify-between items-center">
+            <h1 className="text-3xl font-bold text-white">
+              Hello {localStorage.getItem("name")}
+            </h1>
+            <Button
+              className="bg-red-500 text-white rounded-xl hover:bg-red-700"
+              onClick={logout}
+            >
+              logout
+            </Button>
+          </div>
+        </div>
       </main>
     </>
   );
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  console.log(context.req.cookies.authToken, !!context.req.cookies.authToken);
   const isAuthenticated = !!context.req.cookies.authToken;
 
   if (!isAuthenticated) {
