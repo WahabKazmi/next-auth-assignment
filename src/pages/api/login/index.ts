@@ -16,14 +16,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
     const { username, password } = req.body;
 
-    // Input validation
     if (!username || !password) {
       return res
         .status(400)
         .json({ error: "Both username and password are required." });
     }
-
-    // Sanitize and validate username and password
     const sanitizedUsername = username.trim();
     const sanitizedPassword = password.trim();
 
@@ -33,15 +30,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         .json({ error: "Username must be between 5 and 20 characters." });
     }
 
-    // Add more password validation checks as needed (e.g., length, complexity)
-
     const isRegisteredUser = USER.find(
       ({ name, password }) =>
         name === sanitizedUsername && password === sanitizedPassword
     );
 
     if (isRegisteredUser) {
-      // Generate and return a JWT token
       const token = jwt.sign(
         { username: sanitizedUsername },
         process.env.SECRET_KEY || "",

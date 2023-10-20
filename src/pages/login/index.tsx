@@ -15,7 +15,7 @@ const LoginForm = () => {
   const { toast } = useToast();
 
   const initialValues = {
-    username: "john_doe2",
+    username: "john_doe",
     password: "Abc132#",
   };
 

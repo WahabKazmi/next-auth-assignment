@@ -1,38 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ernestas Lucinskas Next Auth Project
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project is built on Next.js, TypeScript, Tailwind CSS, and includes a component folder created with Shadcn UI. This readme will provide you with the necessary steps to set up and run the project.
 
-```bash
+## Prerequisites
+
+Before you begin, ensure you have the following prerequisites installed on your system:
+
+- [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) - You need Node.js and npm to install and manage project dependencies.
+
+## Installation
+
+1. Clone the project repository from GitHub:
+
+   ```shell
+   git clone https://github.com/yourusername/your-project.git
+   ```
+
+2. Change into the project directory:
+
+   ```shell
+   cd your-project
+   ```
+
+3. Install project dependencies using npm:
+
+   ```shell
+   npm install
+   ```
+
+## Running the Project
+
+To start the project, you can use the following npm command:
+
+```shell
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will start a development server and you can access the project in your web browser at `http://localhost:3000`.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Shadcn UI Component Folder
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This project includes a component folder built with Shadcn UI. You can find these components in the project directory. You can use these components to build and customize your user interface as needed.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Here's a brief overview of the project structure:
 
-## Learn More
+- **`components`**: This directory contains components built with Shadcn UI.
+- **`pages`**: Next.js pages directory where you can create different pages for your project.
+- **`styles`**: Contains styles and CSS configurations, including Tailwind CSS files.
 
-To learn more about Next.js, take a look at the following resources:
+## Additional Information
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For more information and detailed documentation on Next.js, TypeScript, Tailwind CSS, and Shadcn UI, please refer to their respective official websites and documentation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Shadcn UI Documentation](https://shadcn.github.io/shadcn-ui/)
 
-## Deploy on Vercel
+## Support and Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you encounter any issues or have questions related to the project, please contact the project maintainers at your contact information.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is licensed under the [MIT License](LICENSE), which means you are free to use, modify, and distribute it under the terms of the MIT License. See the `LICENSE` file for more details.
+
+Enjoy working on your project!
