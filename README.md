@@ -15,13 +15,13 @@ Before you begin, ensure you have the following prerequisites installed on your 
 1. Clone the project repository from GitHub:
 
    ```shell
-   git clone https://github.com/yourusername/your-project.git
+   git clone https://github.com/WahabKazmi/next-auth-assignment.git
    ```
 
 2. Change into the project directory:
 
    ```shell
-   cd your-project
+   cd next-auth-assignment
    ```
 
 3. Install project dependencies using npm:
